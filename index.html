@@ -4,6 +4,24 @@
 
   </head>
   <body ng-app='myApp'>
+    <div class='main'>
+      <h2>Name that lyric!</h2>
+      <img src='Cover.jpg' height='25%' width='25%'>
+      <p>P.Y.T. (Pretty Young Thing) - Thriller</p>
+    </div>
+
+    <div class='choice' ng-controller='appCtrl'>
+      <strong>What did MJ say?</strong>
+      <input type='radio' value='Lyric1'>We can take it right in the city night
+      <input type='radio' value='Lyric2'>We can make it right, hit the city lights
+      <button value='Submit'>Submit</button>
+    </div>
+
+    <div>
+      <h2>{{ display }}</h2>
+    </div>
+
+      <script src='app.js'></script>
 
   </body>
 </html>
