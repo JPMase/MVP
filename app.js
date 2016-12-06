@@ -1,37 +1,26 @@
-angular.module('myApp', [])
-   .controller('buttonCtrl', function($scope) {
-    $scope.score = {
-      correct: 0,
-      total: 0
-    }
-    $scope.isDisabled = false;
-    $scope.choose = function() {
-      var decisions = document.getElementsByName('Q1');
-        if (decisions[1].checked === false) {
-          $scope.score.total++;
-          $scope.isDisabled = true;
-          return $scope.display = "You've answered " + $scope.score.correct + "/" + $scope.score.total + " correctly!";
-        } else {
-          $scope.score.correct++;
-          $scope.score.total++;
-          $scope.isDisabled = true;
-          return $scope.display = "You've answered " + $scope.score.correct + "/" + $scope.score.total + " correctly!";
-        }
-    }
-  });
-  // .factory('levelUp', function($scope.answer, $scope.score, $scope.total) {
-  //     var addToScore = function() {
-  //       if ($scope.answer === true) {
-  //         $scope.score++;
-  //         $scope.total++;
-  //         return $scope.display;
-  //       } else {
-  //         $scope.total++;
-  //         return $scope.display;
-  //       }
-  //   };
+var app = angular.module('myApp', []);
 
-  //   return {
-  //     levelUp: levelUp
-  //   };
-  // });
+app.service('Answer', function() {
+  this.score = {
+    correct: 0,
+    total: 0
+  };
+});
+
+app.controller('buttonCtrl', function($scope, Answer) {
+  $scope.isDisabled = false;
+  $scope.choose = function() {
+    var decisions = document.getElementsByName('Q');
+      if (decisions[1].checked === false) {
+        Answer.score.total++
+        $scope.isDisabled = true;
+        return $scope.display = "You've answered " + Answer.score.correct + "/" + Answer.score.total + " correctly!";
+      } else {
+        Answer.score.correct++
+        Answer.score.total++;
+        $scope.isDisabled = true;
+        return $scope.display = "You've answered " + Answer.score.correct + "/" + Answer.score.total + " correctly!";
+      }
+  }
+});
+
