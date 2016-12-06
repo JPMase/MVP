@@ -6,18 +6,16 @@ angular.module('myApp', [])
     $scope.isDisabled = false;
     $scope.choose = function() {
       var decisions = document.getElementsByName('Q1');
-      // for (var i = 0; i < decisions.length; i++) {
         if (decisions[1].checked === false) {
           $scope.total++;
+          $scope.isDisabled = true;
           return $scope.display = "You've answered " + $scope.score + "/" + $scope.total + " correctly!";
         } else {
           $scope.score++;
           $scope.total++;
+          $scope.isDisabled = true;
           return $scope.display = "You've answered " + $scope.score + "/" + $scope.total + " correctly!";
         }
-      // }
-
-      $scope.isDisabled = true;
     }
   });
   // .factory('levelUp', function($scope.answer, $scope.score, $scope.total) {
