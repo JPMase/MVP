@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.js'></script>
+    <script src='app.js'></script>
+    <link rel='stylesheet' type='text/css' href='style.css' />
+  </head>
+
+  <body ng-app='myApp'>
+    <nav class='navigation'>
+      <a href='index.html'>Home</a>
+      <a>New song</a>
+    </nav>
+
+    <div class='main'>
+      <h2>Name that lyric</h2>
+      <img src='Bad.jpg' height='315' width='315'>
+      <p>
+        <i>The Way You Make Me Feel - Bad</i>
+      </p>
+    </div>
+
+    <div class='choice'>
+      <strong>What did MJ say??</strong>
+      <div ng-controller='buttonCtrl'>
+        <div>
+          <input type='radio' name='Q1' value='Lyric1'>I feel I need you from far around
+          <input type='radio' name='Q1' value='Lyric2'>I feel your fever from miles around
+        </div>
+        <button type='submit' value='Submit' ng-click='choose()' ng-disabled='isDisabled' ng-model='isDisabled'>Submit</button>
+        <div>
+          <h2>{{ display }}</h2>
+        </div>
+      </div>
+    </div>
+
+    <iframe width='0' height='0' src='https://www.youtube.com/embed/0neY33G1emQ?autoplay=1&start=54&end=57' frameborder='0' ></iframe>
+
+  </body>
+</html>

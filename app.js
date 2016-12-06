@@ -1,20 +1,21 @@
 angular.module('myApp', [])
    .controller('buttonCtrl', function($scope) {
-    $scope.score = 0;
-    $scope.total = 0;
-    $scope.answer = false;
+    $scope.score = {
+      correct: 0,
+      total: 0
+    }
     $scope.isDisabled = false;
     $scope.choose = function() {
       var decisions = document.getElementsByName('Q1');
         if (decisions[1].checked === false) {
-          $scope.total++;
+          $scope.score.total++;
           $scope.isDisabled = true;
-          return $scope.display = "You've answered " + $scope.score + "/" + $scope.total + " correctly!";
+          return $scope.display = "You've answered " + $scope.score.correct + "/" + $scope.score.total + " correctly!";
         } else {
-          $scope.score++;
-          $scope.total++;
+          $scope.score.correct++;
+          $scope.score.total++;
           $scope.isDisabled = true;
-          return $scope.display = "You've answered " + $scope.score + "/" + $scope.total + " correctly!";
+          return $scope.display = "You've answered " + $scope.score.correct + "/" + $scope.score.total + " correctly!";
         }
     }
   });
