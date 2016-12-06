@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.js'></script>
+    <script src='app.js'></script>
   </head>
+
   <body ng-app='myApp'>
     <div class='main'>
       <h2>Name that lyric!</h2>
@@ -12,16 +14,18 @@
 
     <div class='choice' ng-controller='appCtrl'>
       <strong>What did MJ say?</strong>
-      <input type='radio' value='Lyric1'>We can take it right in the city night
-      <input type='radio' value='Lyric2'>We can make it right, hit the city lights
-      <button value='Submit'>Submit</button>
+      <div>
+        <input type='radio' value='Lyric1'>We can take it right in the city night
+        <input type='radio' value='Lyric2'>We can make it right, hit the city lights
+      </div>
+      <div ng-controller='buttonCtrl'>
+        <button type='submit' value='Submit' ng-click='choose()' ng-disabled='isDisabled' ng-model='isDisabled'>Submit</button>
+      </div>
     </div>
 
     <div>
       <h2>{{ display }}</h2>
     </div>
-
-      <script src='app.js'></script>
 
   </body>
 </html>
